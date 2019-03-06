@@ -15,7 +15,7 @@
                    local-flow
                  global-flow)))
     (when (and flow (file-executable-p flow))
-      ;;(setq-local company-flow-exeuctable flow)
+      (setq-local company-flow-exeuctable flow)
       (setq-local flow-minor-default-binary flow)
       (setq-local flycheck-javascript-flow-executable flow))))
 
@@ -33,3 +33,26 @@
                    global-eslint)))
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
+
+;; company
+
+;; Thanks to https://github.com/tbinetruy/config/blob/master/spacemacs/flow/flow.el
+(defun spacemacs//flow-force-company-flow ()
+  ;; (setq company-backends-js2-mode '(company-flow company-tern
+  ;;                                                (company-dabbrev-code company-gtags company-etags company-keywords)
+  ;;                                                company-files company-dabbrev))
+  ;; (setq company-backends-js2-mode '(company-flow company-tern
+  ;;                                                (company-dabbrev-code company-gtags company-etags company-keywords)
+  ;;                                                company-files company-dabbrev))
+  ;; (setq company-backends-react-mode '(company-flow company-tern
+  ;;                                                  (company-dabbrev-code company-gtags company-etags company-keywords)
+  ;;                                                  company-files company-dabbrev))
+
+  ;; (add-hook 'js-mode-hook 'company-force-flow)
+  ;; (add-hook 'rjsx-mode-hook 'company-force-flow)
+  ;;(add-hook 'react-mode-hook 'company-force-flow)
+  (setq company-backends-web-mode '(company-flow)))
+;; company-tern
+;;(company-dabbrev-code company-gtags company-etags company-keywords)
+;;company-files company-dabbrev)))
+  

@@ -3,10 +3,10 @@
 (setq flow-packages
   '(flow-minor-mode
     web-mode
-    company-mode
     flycheck
-    (company-flow :toggle (configuration-layer/package-usedp 'company))
     (flycheck-flow :toggle (configuration-layer/package-usedp 'flycheck))
+    company
+    (company-flow :toggle (configuration-layer/package-usedp 'company))
     ))
 
 (defun flow/init-flow-minor-mode ()
@@ -34,3 +34,16 @@
 (defun flow/post-init-web-mode ()
   (add-hook 'web-mode-hook 'flow-minor-enable-automatically)
   (spacemacs/add-flycheck-hook 'web-mode))
+
+(defun flow/post-init-company ()
+  (spacemacs|add-company-hook flow-minor-mode))
+
+(defun flow/init-company-flow ()
+  (use-package company-flow))
+
+(defun flow/post-init-company-flow ()
+  (add-to-list 'company-backends 'company-flow)
+  (add-to-list 'company-flow-modes 'web-mode)
+  (add-hook 'web-mode-hook #'spacemacs//flow-force-company-flow))
+
+
