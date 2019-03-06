@@ -33,7 +33,8 @@
 
 (defun flow/post-init-web-mode ()
   (add-hook 'web-mode-hook 'flow-minor-enable-automatically)
-  (spacemacs/add-flycheck-hook 'web-mode))
+  (spacemacs/add-flycheck-hook 'web-mode)
+  (spacemacs//flow-customize-web-mode))
 
 (defun flow/post-init-company ()
   (spacemacs|add-company-hook flow-minor-mode))

@@ -1,3 +1,15 @@
+;; web mode
+
+(defun spacemacs//flow-customize-web-mode ()
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.js\\'")
+          ("jsx" . "\\.jsx\\'"))))
+
 ;; flow
 
 (defun spacemacs//flow-use-flow-from-node-modules ()
