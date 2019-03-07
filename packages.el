@@ -22,6 +22,7 @@
 (defun flow/post-init-flycheck-flow ()
   (with-eval-after-load 'flycheck
     (with-eval-after-load 'flycheck-flow
+      (flycheck-add-mode 'javascript-eslint 'web-mode)
       (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
       (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
       (flycheck-add-next-checker 'javascript-flow 'javascript-eslint)))
@@ -46,5 +47,3 @@
   (add-to-list 'company-backends 'company-flow)
   (add-to-list 'company-flow-modes 'web-mode)
   (add-hook 'web-mode-hook #'spacemacs//flow-force-company-flow))
-
-
