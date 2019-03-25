@@ -17,7 +17,7 @@
                ('darwin "osx")
                ('gnu/linux "linux64")
                (_ nil)))
-         (root (locate-dominating-file 
+         (root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 "node_modules"))
          (global-flow (executable-find "flow"))
@@ -63,8 +63,9 @@
   ;; (add-hook 'js-mode-hook 'company-force-flow)
   ;; (add-hook 'rjsx-mode-hook 'company-force-flow)
   ;;(add-hook 'react-mode-hook 'company-force-flow)
-  (setq company-backends-web-mode '(company-flow)))
+  (setq company-backends-web-mode '(company-psc-ide-backend company-flow company-bbdb company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
+                                                            (company-dabbrev-code company-gtags company-etags company-keywords)
+                                                            company-oddmuse company-dabbrev)))
 ;; company-tern
 ;;(company-dabbrev-code company-gtags company-etags company-keywords)
 ;;company-files company-dabbrev)))
-  

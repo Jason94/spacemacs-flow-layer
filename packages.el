@@ -3,7 +3,7 @@
 (setq flow-packages
   '(flow-minor-mode
     web-mode
-    flycheck
+    ;;flycheck
     (flycheck-flow :toggle (configuration-layer/package-usedp 'flycheck))
     company
     (company-flow :toggle (configuration-layer/package-usedp 'company))
