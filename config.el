@@ -1,1 +1,1 @@
-(spacemacs|defvar-company-backends flow-minor-mode)
+(spacemacs|defvar-company-backends web-mode)

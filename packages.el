@@ -37,13 +37,18 @@
   (spacemacs/add-flycheck-hook 'web-mode)
   (spacemacs//flow-customize-web-mode))
 
+;;; Company
+
 (defun flow/post-init-company ()
-  (spacemacs|add-company-hook flow-minor-mode))
+  (spacemacs|add-company-hook web-mode))
 
 (defun flow/init-company-flow ()
-  (use-package company-flow))
+  (use-package company-flow
+    :init (push 'company-flow company-backends-web-mode)))
 
 (defun flow/post-init-company-flow ()
   (add-to-list 'company-backends 'company-flow)
   (add-to-list 'company-flow-modes 'web-mode)
-  (add-hook 'web-mode-hook #'spacemacs//flow-force-company-flow))
+  ;;(add-hook 'web-mode-hook #'spacemacs//flow-force-company-flow)
+  (add-hook 'web-mode-hook #'spacemacs//flow-use-flow-from-node-modules)
+  )
